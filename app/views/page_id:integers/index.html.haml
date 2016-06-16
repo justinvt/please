@@ -1,0 +1,27 @@
+%h1 Listing page_id:integers
+
+%table
+  %tr
+    %th X1
+    %th Y1
+    %th X2
+    %th Y2
+    %th Color
+    %th
+    %th
+    %th
+
+  - @page_id:integers.each do |page_id:integer|
+    %tr
+      %td= page_id:integer.x1
+      %td= page_id:integer.y1
+      %td= page_id:integer.x2
+      %td= page_id:integer.y2
+      %td= page_id:integer.color
+      %td= link_to 'Show', page_id:integer
+      %td= link_to 'Edit', edit_page_id:integer_path(page_id:integer)
+      %td= link_to 'Destroy', page_id:integer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Page id:integer', new_page_id:integer_path

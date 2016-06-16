@@ -1,0 +1,11 @@
+defaults: &defaults
+  title: Fox.farm
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

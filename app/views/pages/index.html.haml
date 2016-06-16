@@ -1,0 +1,29 @@
+%h1 Listing pages
+
+%table
+  %tr
+    %th User
+    %th Url
+    %th Domain
+    %th Size
+    %th Image
+    %th
+    %th
+    %th
+
+  - @pages.each do |page|
+    %tr
+      %td= page.user_id
+      %td= page.url
+      %td= page.domain
+      %td= page.size
+      %td
+        %a{:href=>page.public_url}
+          %img{:src=>page.public_url,:width=>100, :height=>100}
+      %td= link_to 'Show', page
+      %td= link_to 'Edit', edit_page_path(page)
+      %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+= link_to 'dddNew Page', new_page_path

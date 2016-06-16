@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b X1:
+  = @page_id:integer.x1
+%p
+  %b Y1:
+  = @page_id:integer.y1
+%p
+  %b X2:
+  = @page_id:integer.x2
+%p
+  %b Y2:
+  = @page_id:integer.y2
+%p
+  %b Color:
+  = @page_id:integer.color
+
+= link_to 'Edit', edit_page_id:integer_path(@page_id:integer)
+\|
+= link_to 'Back', page_id:integers_path
