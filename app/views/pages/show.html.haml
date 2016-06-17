@@ -1,15 +1,6 @@
 %p#notice= notice
 
 %div.page
-  .screenshot{:style => "background:url(#{@page.public_url});width:1920px;height:3000px"}
-  - [:user_id, :url, :domain, :size, :image].each do |i|
-    %div{:class=> i}
-      %div.title= i
-      %div.value  
-        - if @page[i].blank?
-          %span.empty= "none"
-        - else
-          %span= @page[i]
-          - if i == :image
-            %a{:href=>@page.public_url}
-              %img{:src=> @page.public_url,:width=>100, :height=>100}
+  %img#target{:src=>@page.public_url}
+  = render "screencap"
+  //.screenshot{:style => "background:url(#{@page.public_url});width:1920px;height:3000px"}

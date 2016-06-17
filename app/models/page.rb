@@ -10,7 +10,7 @@ class Page < ActiveRecord::Base
       :medium => "200x200" 
   }
   
-  @@format = "jpg"
+  @@format = "png"
   
   @@urls_to_use = %w[
     http://google.com
