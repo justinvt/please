@@ -1,4 +1,6 @@
 Tree::Application.routes.draw do
+  
+  get 'pages/page', :controller => "pages", :action=>"page"
   resources :pages
    
   # The priority is based upon order of creation: first created -> highest priority.
@@ -6,6 +8,8 @@ Tree::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root :controller => "pages",  :action => :new
+  
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

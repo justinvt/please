@@ -12,6 +12,10 @@ class PagesController < ApplicationController
   def show
   end
   
+  def page
+    render "_menu"
+  end
+  
   
 
   # GET /pages/new

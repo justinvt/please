@@ -61,3 +61,5 @@ bower.json
 
 /app/assets/images/pages
 
+*.DS_Store
+
