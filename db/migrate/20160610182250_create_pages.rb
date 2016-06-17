@@ -5,7 +5,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :url
       t.string :domain
       t.integer :size
-      t.integer :image
+      t.string :image
 
       t.timestamps
     end

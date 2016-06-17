@@ -1,12 +1,16 @@
 class Page < ActiveRecord::Base
   
+  
   after_create :scrape
   
   has_attached_file :photo,
     :styles => {
       :thumb => "100x100#",
       :small  => "150x150>",
-      :medium => "200x200" }
+      :medium => "200x200" 
+  }
+  
+  @@format = "jpg"
   
   @@urls_to_use = %w[
     http://google.com
@@ -25,16 +29,19 @@ class Page < ActiveRecord::Base
   end
   
   def public_url
-     "/assets/pages/#{id}/image.png"
+     "/assets/pages/#{id}/image.#{@@format}"
   end
 
   def scrape
-    Thread.new { 
-      output = `phantomjs #{Rails.root}/bin/screencap.js #{self.url} #{self.id}`.strip
+    #Thread.new {
+      logger.debug "Thread"
+      phantom_bin = `which phantomjs`.strip
+      logger.debug phantom_bin
+      output = `#{phantom_bin} #{Rails.root}/bin/screencap.js #{self.url} #{self.id} #{@@format}`.strip
       self.image = output
       save!
-    }
+      # }
+      self
   end
-  
   
 end
